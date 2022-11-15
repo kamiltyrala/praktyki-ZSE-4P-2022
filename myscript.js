@@ -5,7 +5,9 @@ function handleCalculatorForm(form){
     let inputBox1 = form.inputbox1.value;
     let inputBox2 = form.inputbox2.value;
     let operator = form.operator.value;
+
     document.getElementById("calcResult").innerHTML = calculate(inputBox1, inputBox2, operator);
+
 }
 
 function handlePalindromeForm(form){
@@ -41,9 +43,20 @@ function calculate(input1, input2, operator){
     return error
 }
 
-function palindrome(var1){
-    var1 = var1 + "!";
-    return var1;
+function palindrome(input){
+    
+    function floor(n) { // ta abominacja obcina .5 z końca liczby (nie byłem pewny czy możemy używać Math)
+        return (n+"")[(n+"").length-1] == "5" || (n+"")[(n+"").length-2] == "."? n-0.5:n 
+    }
+
+    for (let i = 0; i < floor(input.length/2); i++) {
+        
+        if (input[i] != input[input.length-1-i]) { return error; }
+
+    }
+
+    return "jest palindromem, wszystko śmiga"
+
 }
 
 function handleAnagramForm(form){
