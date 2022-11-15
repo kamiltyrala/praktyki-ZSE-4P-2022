@@ -1,7 +1,11 @@
+const error = "no chyba nie"
+
 function handleCalculatorForm(form){
 
-    let toDisplay = form.inputbox.value;
-    document.getElementById("calcResult").innerHTML = calculate(toDisplay, "+-/*");
+    let inputBox1 = form.inputbox1.value;
+    let inputBox2 = form.inputbox2.value;
+    let operator = form.operator.value;
+    document.getElementById("calcResult").innerHTML = calculate(inputBox1, inputBox2, operator);
 }
 
 function handlePalindromeForm(form){
@@ -10,8 +14,31 @@ function handlePalindromeForm(form){
     document.getElementById("palindromeResult").innerHTML = palindrome(formValue);
 }
 
-function calculate(var1, var2){
-    return 0;
+function calculate(input1, input2, operator){
+
+    function validate(n) { 
+        return (n === null || n == "") 
+    }
+
+    if (validate(input1) || validate(input2) || validate(operator)) { return error }
+
+    switch (operator) {
+
+        case "add":
+            return parseInt(input1) + parseInt(input2) // tylko tutaj trzeba parsować bo js
+            
+        case "subtract":
+            return input1 - input2
+
+        case "multiply":
+            return input1 * input2
+
+        case "divide":
+            return input2 == 0? error : input1 / input2
+
+    }
+
+    return error
 }
 
 function palindrome(var1){

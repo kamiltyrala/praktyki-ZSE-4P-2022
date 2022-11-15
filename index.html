@@ -6,8 +6,19 @@
 </HEAD>
 <BODY>
     <FORM NAME="calculatorForm" ACTION="" METHOD="GET">Enter something in the box: <BR>
-        <INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+        <INPUT TYPE="text" NAME="inputbox1" VALUE="">
+        <INPUT TYPE="text" NAME="inputbox2" VALUE="">
+
+        <h3>
+            <input type="radio" id="add" name="operator" value="add"><label for="add">+</label><br>
+            <input type="radio" id="subtract" name="operator" value="subtract"><label for="subtract">−</label><br>
+            </label><input type="radio" id="divide" name="operator" value="divide"><label for="divide">÷</label><br>
+            </label><input type="radio" id="multiply" name="operator" value="multiply"><label for="multiply">×</label><br>
+        </h3>    
+
         <INPUT TYPE="button" NAME="button" Value="Click" onClick="handleCalculatorForm(this.form)">
+
+          
     </FORM>
     <div id="calcResult"></div>
     <FORM NAME="palindromeForm" ACTION="" METHOD="GET">Enter something in the box: <BR>
