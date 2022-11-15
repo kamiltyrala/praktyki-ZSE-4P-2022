@@ -82,6 +82,38 @@ function bubbleSort(arr){
     return arr;
 }
 
+function BackwardsBubbleSort(arr){
+    
+    for(var i = 0; i < arr.length; i++){
+       
+        for(var j = 0; j < ( arr.length - i -1 ); j++){
+         
+            if(arr[j] < arr[j+1]){           
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    return arr;
+}
+
+function BackwardsBubbleSortStrings(arr){
+    
+    for(var i = 0; i < arr.length; i++){
+       
+        for(var j = 0; j < ( arr.length - i -1 ); j++){
+         
+            if(arr[j].length > arr[j+1].length){           
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    return arr;
+}
+
 function anagram(var1, var2) {
     let word1 = [];
     let word2 = [];
@@ -145,9 +177,52 @@ function fibonacci (n){
     }
 }
 
-console.log(recurse(1,5));
-console.log(0.2 + 0.1);
-console.log(fibonacci(5));
-console.log(anagram("siema", "siemb"));
-console.log("a".charCodeAt(0));
-console.log("b".charCodeAt(0));
+function noRepeats(arr) { // działa tylko na posortowanych tablicach
+
+    let temp = [arr[0]]
+    for (let i = 1; i < arr.length; i++) {
+
+        if (arr[i] != arr[i-1]) {
+            temp.push(arr[i])
+        }
+        
+    }
+    return temp;
+
+}
+
+// wszystkie te funkcje dają errora nie mam pojęcia czym są dlatego je skomentowałem
+
+//console.log(recurse(1,5));
+//console.log(0.2 + 0.1);
+//console.log(fibonacci(5));
+//console.log(anagram("siema", "siemb"));
+//console.log("a".charCodeAt(0));
+//console.log("b".charCodeAt(0));
+
+function zadanie3(arr) {
+
+    // tak, wiem, że powinienem wybrać krótsze nazwy
+    return typeof(arr[0]) == "string"? noRepeats(BackwardsBubbleSortStrings(arr))[1] : noRepeats(BackwardsBubbleSort(arr))[1] 
+
+}
+
+console.log(" -- zadnie 3 --")
+console.log(zadanie3([1, 5 ,10 ,15]))
+console.log(zadanie3([1, 1, 3, 3, 4 ,4]))
+console.log(zadanie3(["ala", "robert", "stanislaw"]))
+
+function zadanie4(n1,n2) {
+
+    console.log(n1)
+    if (n1 < n2) {
+        zadanie4(n1+1,n2)
+    }
+
+}
+
+console.log(" -- zadnie 4 --")
+zadanie4(8, 11)
+console.log("--")
+zadanie4(1, 5)
+
