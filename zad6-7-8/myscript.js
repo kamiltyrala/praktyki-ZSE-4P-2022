@@ -43,7 +43,7 @@ console.log(xd(books))
 const positiveReviews = (obj) => [...obj].filter(book => book.rating > 5)
 const unevenPages = (obj) => [...obj].filter(book => book.pages % 2 == 1)
 const titleHasANumber = (obj) => [...obj].filter(book => book.title.match(/\d/gm))
-const count = (obj) => [...obj].length // ¯\_(ツ)_/¯
+const count = (obj) => obj.length // ¯\_(ツ)_/¯
 
 const xd2 = compose(count, titleHasANumber, positiveReviews, unevenPages)
 console.log(xd2(books))
