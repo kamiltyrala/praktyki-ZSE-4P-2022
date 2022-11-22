@@ -31,7 +31,7 @@ console.log(genreIsFantasyPages(books));
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
 
 //zad6
-const evenPages = (obj) => [...obj].filter(book => book.pages%2==0)
+const evenPages = (obj) => [...obj].filter(book => book.pages % 2 == 0)
 const genreEndsWithY = (obj) => [...obj].filter(book => book.genre.match(/y$/))
 const onlyTitles = (obj) => [...obj].map(book => book.title)
 const trimEveryElement = (arr) => arr.map(str => str.replace(/\s/gm,""))
@@ -41,11 +41,11 @@ console.log(xd(books))
 
 //zad7
 const positiveReviews = (obj) => [...obj].filter(book => book.rating > 5)
-const unevenPages = (obj) => [...obj].filter(book => book.pages%2==1)
-const TitleHasANumber = (obj) => [...obj].filter(book => book.title.match(/\d/gm))
+const unevenPages = (obj) => [...obj].filter(book => book.pages % 2 == 1)
+const titleHasANumber = (obj) => [...obj].filter(book => book.title.match(/\d/gm))
 const count = (obj) => [...obj].length // ¯\_(ツ)_/¯
 
-const xd2 = compose(count, TitleHasANumber, positiveReviews, unevenPages)
+const xd2 = compose(count, titleHasANumber, positiveReviews, unevenPages)
 console.log(xd2(books))
 
 //zad8
