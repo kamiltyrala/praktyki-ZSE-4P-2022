@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>witam</title>
+</head>
+<body>
+    <script>
+
+        // zad9
+        const zad9 = new Promise(function(Resolve) {
+            setTimeout(()=>{Resolve("supcio!"); }, 5000)
+        })
+        .then((value)=> {
+            console.log(value);
+        });
+
+        // zad10
+        const multiplyAsync = (x, y) => {
+
+            const promise = new Promise((resolve, reject) =>{
+
+                if (typeof x === 'number' && typeof y === 'number') {
+                    resolve(x * y)
+                }
+                else{
+                    reject("nie ma szans")
+                }
+
+            })
+            .then((result)=>{
+                console.log(result)
+            })
+            .catch((error)=>{
+                console.error(error)
+            })
+
+        }
+
+        multiplyAsync(4,"h")
+        multiplyAsync(4,4)
+
+    </script>
+</body>
+</html>
